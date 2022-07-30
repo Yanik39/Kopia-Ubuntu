@@ -1,4 +1,4 @@
-FROM		kopia:kopia:latest AS base
+FROM		kopia/kopia:latest AS base
 FROM		ubuntu:jammy
 
 ENV 		DEBIAN_FRONTEND="noninteractive" \
