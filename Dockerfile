@@ -10,7 +10,9 @@ ENV \
 	KOPIA_CACHE_DIRECTORY=/app/cache \
 	RCLONE_CONFIG=/app/rclone/rclone.conf \
 	KOPIA_PERSIST_CREDENTIALS_ON_CONNECT=false \
-	KOPIA_CHECK_FOR_UPDATES=false	
+	KOPIA_CHECK_FOR_UPDATES=false
+
+COPY base/ /
   
 RUN \
 	apt-get update && \
@@ -20,9 +22,7 @@ RUN \
     	apt-get autoremove -y && \
     	rm -rf /var/lib/apt/* /var/lib/cache/* /var/lib/log/* \
 	/var/tmp/* /usr/share/doc/ /usr/share/man/ /usr/share/locale/ \
-	/root/.cache /root/.local /root/.gnupg /root/.config /tmp/*
-    
-RUN \
+	/root/.cache /root/.local /root/.gnupg /root/.config /tmp/* && \
 	mkdir -p /mnt/snapshots && \
 	mkdir -p /app
 	
