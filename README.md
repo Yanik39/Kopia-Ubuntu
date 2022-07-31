@@ -1,5 +1,6 @@
 # Kopia-Ubuntu
 Ubuntu based Kopia
+Difference with original kopia container is this is based ubuntu and fuse3 is installed. So KopiaUI can mount snapshots and we can browse KopaUI mounted folders from host system.
 
 # Nginx reverse proxy
 ```
