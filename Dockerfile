@@ -22,8 +22,7 @@ RUN 		apt-get update && \
     		apt-get autoremove -y && \
     		rm -rf /var/lib/apt/* /var/lib/cache/* /var/lib/log/* \
 		/var/tmp/* /usr/share/doc/ /usr/share/man/ /usr/share/locale/ \
-		/root/.cache /root/.local /root/.gnupg /root/.config /tmp/* \
-		mkdir /mnt/kopia
+		/root/.cache /root/.local /root/.gnupg /root/.config /tmp/*
 	
 WORKDIR 	/app
 	
