@@ -30,3 +30,23 @@ services:
         KOPIA_PASSWORD: XXX
         TZ: Europe/Berlin
         USER: XXX
+        
+### IF you would like to assign hostname and domain name to your server.       
+#      hostname: "XXX"
+#      domainname: "XXX"
+
+### If you want to assign ip to your container with an existing Docker Network.
+### Existing networks name is "Docker" in below example. Just change it with your own.
+#      networks:
+#        Docker:
+#          ipv4_address: aaa.bbb.ccc.ddd
+
+#### If you would like to assign DNS Server
+#      dns:
+#        - 8.8.8.8
+#
+
+### Existing Networks should be defined as external.
+#networks:
+#  Docker:
+#    external: true
