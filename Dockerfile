@@ -12,7 +12,7 @@ ENV 		DEBIAN_FRONTEND="noninteractive" \
 		KOPIA_CHECK_FOR_UPDATES=false
 
 COPY 		base/ /
-COPY 		--from=base /app /app
+COPY 		--from=base /bin/kopia /bin/kopia
 COPY		--from=base /bin/rclone /bin/rclone
   
 RUN 		apt-get update && \
@@ -26,4 +26,4 @@ RUN 		apt-get update && \
 	
 WORKDIR 	/app
 	
-ENTRYPOINT 	["/app/kopia"]
+ENTRYPOINT 	["/bin/kopia"]
