@@ -1,8 +1,9 @@
 name: Push_Docker Main
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron:  '39 4,16 * * *'
+    - cron:  '39 4 * * *'
   push:
     branches:
       - 'main'
