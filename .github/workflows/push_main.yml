@@ -3,7 +3,7 @@ name: Push_Docker Main
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '39 4 * * *'
+    - cron:  '39 4 * * 1'
   push:
     branches:
       - 'main'
@@ -14,26 +14,26 @@ jobs:
     steps:
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
       -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
       -
         name: Login to DockerHub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
       -
         name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Push_Docker DEV
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           push: true
           tags: |
@@ -41,7 +41,7 @@ jobs:
             ghcr.io/yanik39/kopia-ubuntu:latest
       -
         name: Git Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Push_Docker Readme
         uses: peter-evans/dockerhub-description@v3
